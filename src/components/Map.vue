@@ -37,10 +37,10 @@ export default {
     this.classes += ` ${this.cssClasses}`;
   },
   mounted() {
-    this.initMapp();
+    this.initMap();
   },
   methods: {
-    async initMapp() {
+    async initMap() {
       try {
         let config;
 
@@ -62,13 +62,11 @@ export default {
           }
         } else {
           config = {
-            mapp: {
-              map: {
-                view: {
-                  zoomLevel: this.zoom,
-                  latitude: this.latitude,
-                  longitude: this.longitude
-                }
+            map: {
+              view: {
+                zoomLevel: this.zoom,
+                latitude: this.latitude,
+                longitude: this.longitude
               },
               layers: {
                 basemaps: [this.basemap]
@@ -80,11 +78,11 @@ export default {
         this.$ol.config = config;
         this.$emit("config-ready", this.$ol.config);
 
-        this.$ol.app = await this.$ol.lib.createApp(this.$ol.config.mapp);
+        this.$ol.app = await this.$ol.lib.createMap(this.$ol.config.map);
         this.$emit("app-ready", this.$ol.app);
 
-        this.$ol.mapp.once("rendercomplete", () => {
-          this.$emit("mapp-rendered", this.$ol.mapp);
+        this.$ol.map.once("rendercomplete", () => {
+          this.$emit("map-rendered", this.$ol.map);
         });
       } catch (ex) {
         console.log(ex);
