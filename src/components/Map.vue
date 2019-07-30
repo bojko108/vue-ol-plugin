@@ -94,5 +94,5 @@ export default {
 };
 </script>
 <style scoped>
-@import "~ol/dist/ol.css";
+@import "../../node_modules/ol/src/ol/ol.css";
 </style>

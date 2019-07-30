@@ -60,13 +60,13 @@ export default {
 - `this.$ol.map` - access to created map (same as `this.$ol.app.map`)
 - `this.$ol.config` - access to the initial config
 
-## Mapp component
+## Map component
 
 ### How to use
 
 ```html
 <template>
-  <ol-mapp :configUrl="url_to_your_config" />
+  <ol-map :configUrl="url_to_your_config" />
 </template>
 ```
 
@@ -76,12 +76,12 @@ List of props, used for creating the mapp:
 
 Name | Description | Required | Type | Default value |
 :--- | :--- | :---: | :---: | :---:
-`cssClasses` | Name of CSS classes to add to the mapp `HTMLElement`. Default CSS class `mapp` is not removed. | `false` | `String` | `mapp`
+`cssClasses` | Name of CSS classes to add to the mapp `HTMLElement`. Default CSS class `mapp` is not removed. | `false` | `String` | `map`
 `configUrl` | Url to the mapp config | `false` | `String` | `undefined`
-`latitude` | Lattitude of mapp's center. If set, it will override `config.mapp.map.view.latitude` | `false` | `Number` | `undefined`
-`longitude` | Longitude of mapp's center. If set, it will override `config.mapp.map.view.longitude` | `false` | `Number` | `undefined`
-`zoom` | Zoom level for the mapp. If set, it will override `config.mapp.map.view.zoomLevel` | `false` | `Number` | `undefined`
-`basemap` | Sets the basemap for this mapp. This prop has two required properties: `name` and `provider`. If set it will override `config.mapp.layers.basemaps` | `false` | `Object` | `undefined`
+`latitude` | Lattitude of mapp's center. If set, it will override `config.map.map.view.latitude` | `false` | `Number` | `undefined`
+`longitude` | Longitude of mapp's center. If set, it will override `config.map.map.view.longitude` | `false` | `Number` | `undefined`
+`zoom` | Zoom level for the mapp. If set, it will override `config.map.map.view.zoomLevel` | `false` | `Number` | `undefined`
+`basemap` | Sets the basemap for this mapp. This prop has two required properties: `name` and `provider`. If set it will override `config.map.layers.basemaps` | `false` | `Object` | `undefined`
 
 ### Events
 
