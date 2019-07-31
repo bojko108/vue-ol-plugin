@@ -5366,10 +5366,11 @@ ol@^5.2.0:
 
 ol@bojko108/openlayers#mapdaemon:
   version "6.0.0-beta.11"
-  resolved "https://codeload.github.com/bojko108/openlayers/tar.gz/78782ef8c218c7c2c41d59a730977a150b9ceb34"
+  resolved "https://codeload.github.com/bojko108/openlayers/tar.gz/833213dc76ccfdcd2ebeb71d7fb63552465f4b87"
   dependencies:
     "@feathersjs/feathers" "^3.3.1"
     "@feathersjs/rest-client" "^1.4.7"
+    axios "^0.19.0"
     ol-esri-style bojko108/ol-esri-style
     pbf "3.2.0"
     pixelworks "1.1.0"
