@@ -19,6 +19,17 @@ export default {
     layers: {
       type: Array,
       validator: function(value) {
+        for (let i = 0; i < value.length; i++) {
+          if (!value[i].metadata) {
+            console.warn("layer.metadata is required");
+            return false;
+          }
+          if (!value[i].metadata.name) {
+            console.warn("layer.metadata.name is required");
+            return false;
+          }
+        }
+
         return true;
       }
     },
@@ -35,7 +46,9 @@ export default {
             return false;
           }
           if (!value[i].metadata.provider) {
-            console.warn("basemap.metadata.provider is required");
+            console.warn(
+              "basemap.metadata.provider is required. Valid values are: 'none', 'local', 'osm', 'ocm', 'bingmaps', 'stamen', 'wms', 'bgmountains', 'xyz', 'topographic', 'mapbox'."
+            );
             return false;
           }
         }

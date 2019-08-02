@@ -5366,7 +5366,7 @@ ol@^5.2.0:
 
 ol@bojko108/openlayers#mapdaemon:
   version "6.0.0-beta.11"
-  resolved "https://codeload.github.com/bojko108/openlayers/tar.gz/833213dc76ccfdcd2ebeb71d7fb63552465f4b87"
+  resolved "https://codeload.github.com/bojko108/openlayers/tar.gz/c3c8b8348db3354f875416c78e647a3c18a1c914"
   dependencies:
     "@feathersjs/feathers" "^3.3.1"
     "@feathersjs/rest-client" "^1.4.7"
@@ -6352,9 +6352,9 @@ rbush@2.0.2:
     quickselect "^1.0.1"
 
 rbush@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/rbush/-/rbush-3.0.0.tgz#6ba5ee1e7d8218f7ac219f5e5b145a8a7113ff72"
-  integrity sha512-hb6ViijtI77X4lyhfYDsjOc6icrJPVdHsxf44vYiGctsrWJNXoPtR6Uzvo8F562mJZysjn8YRI9jNKvDPK4ozQ==
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/rbush/-/rbush-3.0.1.tgz#5fafa8a79b3b9afdfe5008403a720cc1de882ecf"
+  integrity sha512-XRaVO0YecOpEuIvbhbpTrZgoiI6xBlz6hnlr6EHhd+0x9ase6EmeN+hdwwUaJvLcsFFQ8iWVF1GAK1yB0BWi0w==
   dependencies:
     quickselect "^2.0.0"
 
