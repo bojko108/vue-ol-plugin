@@ -115,13 +115,13 @@ export default {
           };
         }
 
-        this.$emit("config-ready", config);
+        this.$emit("config-created", config);
 
         const map = await this.$ol.createMap(config.map);
+        this.$emit("map-created", this.$ol.getMap());
         map.once("rendercomplete", () => {
           this.$emit("map-rendered", this.$ol.getMap());
         });
-        this.$emit("map-ready", this.$ol.getMap());
       } catch (ex) {
         console.log(ex);
       }

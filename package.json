@@ -5,6 +5,10 @@
   "author": "bojko108 <bojko108@gmail.com>",
   "license": "MIT",
   "main": "src/index.js",
+  "vetur": {
+    "tags": "src/vetur/tags.json",
+    "attributes": "src/vetur/attributes.json"
+  },
   "scripts": {
     "patch": "npm version patch --no-git-tag-version",
     "minor": "npm version minor --no-git-tag-version",

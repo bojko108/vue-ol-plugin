@@ -76,7 +76,7 @@ List of props, used for creating the mapp:
 
 Name | Description | Required | Type | Default value |
 :--- | :--- | :---: | :---: | :---:
-`cssClasses` | Name of CSS classes to add to the mapp `HTMLElement`. Default CSS class `mapp` is not removed. | `false` | `String` | `map`
+`cssClasses` | Name of CSS classes to add to the mapp `HTMLElement`. Default CSS class `map` is not removed. | `false` | `String` | `map`
 `configUrl` | Url to the mapp config | `false` | `String` | `undefined`
 `latitude` | Lattitude of mapp's center. If set, it will override `config.map.map.view.latitude` | `false` | `Number` | `undefined`
 `longitude` | Longitude of mapp's center. If set, it will override `config.map.map.view.longitude` | `false` | `Number` | `undefined`
