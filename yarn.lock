@@ -5366,7 +5366,7 @@ ol@^5.2.0:
 
 ol@bojko108/openlayers#mapdaemon:
   version "6.0.0-beta.11"
-  resolved "https://codeload.github.com/bojko108/openlayers/tar.gz/111de92066f78ff331c8d1cffee3c0b39f8aa912"
+  resolved "https://codeload.github.com/bojko108/openlayers/tar.gz/703d74946fd7dd468740bdd983e14d0ed32582ef"
   dependencies:
     "@feathersjs/feathers" "^3.3.1"
     "@feathersjs/rest-client" "^1.4.7"

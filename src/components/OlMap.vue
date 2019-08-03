@@ -10,13 +10,14 @@ export default {
   props: {
     configUrl: { type: String, required: false },
     cssClasses: { type: String, required: false, default: "" },
-    target: { type: String, required: false },
-    projection: { type: String, required: false },
-    latitude: { type: Number, required: false },
-    longitude: { type: Number, required: false },
-    zoom: { type: Number, required: false },
-    rotation: { type: Number, required: false },
+    target: { type: String, required: false, default: "map" },
+    projection: { type: String, required: false, default: "EPSG:3857" },
+    latitude: { type: Number, required: false, default: 0 },
+    longitude: { type: Number, required: false, default: 0 },
+    zoom: { type: Number, required: false, default: 1 },
+    rotation: { type: Number, required: false, default: 0 },
     layers: {
+      default: [],
       type: Array,
       validator: function(value) {
         for (let i = 0; i < value.length; i++) {
@@ -35,6 +36,7 @@ export default {
     },
     basemaps: {
       type: Array,
+      default: [],
       validator: function(value) {
         for (let i = 0; i < value.length; i++) {
           if (!value[i].metadata) {
@@ -109,8 +111,8 @@ export default {
               longitude: this.longitude,
               zoom: this.zoom,
               rotation: this.rotation,
-              layers: [this.layers],
-              basemaps: [this.basemap]
+              layers: this.layers,
+              basemaps: this.basemap
             }
           };
         }
@@ -122,8 +124,8 @@ export default {
         map.once("rendercomplete", () => {
           this.$emit("map-rendered", this.$ol.getMap());
         });
-      } catch (ex) {
-        console.log(ex);
+      } catch (e) {
+        console.log(e);
       }
     }
   }
