@@ -1,6 +1,19 @@
 {
-  "ol-map": {
-    "attributes": ["configUrl", "cssClasses", "target", "projection", "latitude", "longitude", "zoom", "rotation", "layers", "basemaps"],
-    "description": "Creates a new map using MapDaemon extensions for OpenLayers. This element emits following events: @config-created, @map-created and @map-rendered"
+  "daemon-map": {
+    "attributes": [
+      "configUrl",
+      "cssClasses",
+      "backendUrl",
+      "projection",
+      "latitude",
+      "longitude",
+      "zoom",
+      "rotation",
+      "controls",
+      "interactions",
+      "layers",
+      "basemaps"
+    ],
+    "description": "Creates a new map using MapDaemon extensions for OpenLayers. This element emits following events:\n@config-created - fired when the config is fetched and ready; \n@map-created - fired when the map is created; \n@map-rendered - fired when the map is rendered for the first time"
   }
 }

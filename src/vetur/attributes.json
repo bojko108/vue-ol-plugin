@@ -1,42 +1,50 @@
 {
-  "ol-map/configUrl": {
+  "daemon-map/configUrl": {
     "type": "string",
-    "description": "Url to a remote config"
+    "description": "Url to a remote config. Values from the config file will be overrided by the properties of this component (if defined)!"
   },
-  "ol-map/cssClasses": {
+  "daemon-map/cssClasses": {
     "type": "string",
     "description": "Name of CSS classes to add to the map's HTMLElement. Default CSS class `map` is not removed."
   },
-  "ol-map/target": {
+  "daemon-map/backendUrl": {
     "type": "string",
-    "description": "Sets the HTMLElement containing the map. If set, it will override config property."
+    "description": "Sets the Backend URL address used by this map."
   },
-  "ol-map/projection": {
+  "daemon-map/projection": {
     "type": "string",
-    "description": "Sets map projection (EPSG:CODE). If set, it will override config property."
+    "description": "Sets map projection (EPSG:CODE). If set, it will override config.map.projection property."
   },
-  "ol-map/latitude": {
+  "daemon-map/latitude": {
     "type": "Number",
-    "description": "Sets Latitude of map's center. If set, it will override config property."
+    "description": "Sets Latitude of map's center. If set, it will override config.map.latitude property."
   },
-  "ol-map/longitude": {
+  "daemon-map/longitude": {
     "type": "Number",
-    "description": "Sets Longitude of map's center. If set, it will override config property."
+    "description": "Sets Longitude of map's center. If set, it will override config.map.longitude property."
   },
-  "ol-map/zoom": {
+  "daemon-map/zoom": {
     "type": "Number",
-    "description": "Sets map zoom level. If set, it will override config property."
+    "description": "Sets map zoom level. If set, it will override config.map.zoom property."
   },
-  "ol-map/rotation": {
+  "daemon-map/rotation": {
     "type": "Number",
-    "description": "Sets map rotation in degrees. If set, it will override config property."
+    "description": "Sets map rotation in degrees. If set, it will override config.map.rotation property."
   },
-  "ol-map/layers": {
+  "daemon-map/controls": {
+    "type": "Object",
+    "description": "Sets default map controls. If set, it will override config.map.controls property."
+  },
+  "daemon-map/interactions": {
+    "type": "Object",
+    "description": "Sets default map interactions. If set, it will override config.map.interactions property. Available boolean properties are: altShiftDragRotate, doubleClickZoom, dragPan, pinchRotate, pinchZoom, keyboard, mouseWheelZoom, shiftDragZoom"
+  },
+  "daemon-map/layers": {
     "type": "Array<Object>",
-    "description": "Sets operational layers array for this map. If set, it will override config property."
+    "description": "Sets operational layers for this map. If not empty, it will override config.map.layers property. Available boolean properties are: rotate, zoom, attribution, scale, mousePosition"
   },
-  "ol-map/basemaps": {
+  "daemon-map/basemaps": {
     "type": "Array<Object>",
-    "description": "Sets basemaps array for this map. If set, it will override config property."
+    "description": "Sets basemaps for this map. If not empty, it will override config.map.basemaps property."
   }
 }
