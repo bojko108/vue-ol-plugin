@@ -28,8 +28,8 @@ export default {
 
     // map operational layers
     layers: {
-      default: [],
       type: Array,
+      default: () => [],
       validator: function(value) {
         for (let i = 0; i < value.length; i++) {
           if (!value[i].metadata) {
@@ -49,7 +49,7 @@ export default {
     // map basemap layers
     basemaps: {
       type: Array,
-      default: [],
+      default: () => [],
       validator: function(value) {
         for (let i = 0; i < value.length; i++) {
           if (!value[i].metadata) {
@@ -110,7 +110,7 @@ export default {
         } else {
           config = { map: {} };
         }
-        
+
         config.backendUrl = backendUrl || config.backendUrl;
         if (target) {
           config.map.target = target;
