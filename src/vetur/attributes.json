@@ -39,6 +39,10 @@
     "type": "Object",
     "description": "Sets default map interactions. If set, it will override config.map.interactions property. Available boolean properties are: altShiftDragRotate, doubleClickZoom, dragPan, pinchRotate, pinchZoom, keyboard, mouseWheelZoom, shiftDragZoom"
   },
+  "daemon-map/widgets": {
+    "type": "Array<Object>",
+    "description": "Sets default map widgets. If set, it will override config.widgets property. There is only one required property - name of the widget."
+  },
   "daemon-map/layers": {
     "type": "Array<Object>",
     "description": "Sets operational layers for this map. If not empty, it will override config.map.layers property. Available boolean properties are: rotate, zoom, attribution, scale, mousePosition"
@@ -46,5 +50,17 @@
   "daemon-map/basemaps": {
     "type": "Array<Object>",
     "description": "Sets basemaps for this map. If not empty, it will override config.map.basemaps property."
+  },
+  "daemon-map/@config-created": {
+    "type": "Function",
+    "description": "Event fired when the config is fetched and ready"
+  },
+  "daemon-map/@map-created": {
+    "type": "Function",
+    "description": "Event fired when the map is created"
+  },
+  "daemon-map/@map-rendered": {
+    "type": "Function",
+    "description": "Event fired when the map is rendered for the first time"
   }
 }
