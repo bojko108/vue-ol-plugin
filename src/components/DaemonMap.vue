@@ -26,6 +26,23 @@ export default {
     // default map interactions
     interactions: { type: Object, required: false },
 
+    // default map widgets
+    widgets: {
+      type: Array,
+      required: false,
+      default: () => [],
+      validator: function(value) {
+        for (let i = 0; i < value.length; i++) {
+          if (!value[i].name) {
+            console.warn("widget.name is required");
+            return false;
+          }
+        }
+
+        return true;
+      }
+    },
+
     // map operational layers
     layers: {
       type: Array,
@@ -98,6 +115,7 @@ export default {
           rotation,
           controls,
           interactions,
+          widgets,
           layers,
           basemaps
         } = this;
@@ -108,7 +126,7 @@ export default {
           const response = await this.$axios.get(configUrl);
           config = response.data.mapp;
         } else {
-          config = { map: {} };
+          config = { map: {}, widgets: [] };
         }
 
         config.backendUrl = backendUrl || config.backendUrl;
@@ -136,6 +154,9 @@ export default {
         if (interactions) {
           config.map.interactions = interactions;
         }
+        if (widgets.length > 0) {
+          config.widgets = widgets;
+        }
         if (layers.length > 0) {
           config.map.layers = layers;
         }
@@ -145,9 +166,9 @@ export default {
 
         this.$emit("config-created", config);
 
-        const map = this.$ol.daemon.createMap(config.map, config.backendUrl);
+        const app = this.$ol.daemon.createApp(config);
         this.$emit("map-created", this.$ol.daemon.getMap());
-        map.once("rendercomplete", () => {
+        app.map.once("rendercomplete", () => {
           this.$emit("map-rendered", this.$ol.daemon.getMap());
         });
       } catch (e) {
