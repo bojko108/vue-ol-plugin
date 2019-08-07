@@ -9,13 +9,24 @@ export default {
   name: "Map",
   props: {
     configUrl: { type: String, required: false },
-    cssClasses: { type: String, required: false, default: "" },
-    target: { type: String, required: false, default: "map" },
-    projection: { type: String, required: false, default: "EPSG:3857" },
-    latitude: { type: Number, required: false, default: 0 },
-    longitude: { type: Number, required: false, default: 0 },
-    zoom: { type: Number, required: false, default: 1 },
-    rotation: { type: Number, required: false, default: 0 },
+    cssClasses: { type: String, required: false, default: "map" },
+
+    backendUrl: { type: String, required: false },
+
+    // view properties
+    projection: { type: String, required: false },
+    latitude: { type: Number, required: false },
+    longitude: { type: Number, required: false },
+    zoom: { type: Number, required: false },
+    rotation: { type: Number, required: false },
+
+    // default map controls
+    controls: { type: Object, required: false },
+
+    // default map interactions
+    interactions: { type: Object, required: false },
+
+    // map operational layers
     layers: {
       default: [],
       type: Array,
@@ -34,6 +45,8 @@ export default {
         return true;
       }
     },
+
+    // map basemap layers
     basemaps: {
       type: Array,
       default: [],
@@ -61,6 +74,7 @@ export default {
   },
   data() {
     return {
+      target: "map",
       classes: "map"
     };
   },
@@ -73,56 +87,68 @@ export default {
   methods: {
     async initMap() {
       try {
+        const {
+          backendUrl,
+          configUrl,
+          target,
+          projection,
+          latitude,
+          longitude,
+          zoom,
+          rotation,
+          controls,
+          interactions,
+          layers,
+          basemaps
+        } = this;
+
         let config;
 
-        if (this.configUrl) {
-          const response = await this.$axios.get(this.configUrl);
+        if (configUrl) {
+          const response = await this.$axios.get(configUrl);
           config = response.data.mapp;
-          if (this.target) {
-            config.map.target = this.target;
-          }
-          if (this.projection) {
-            config.map.projection = this.projection;
-          }
-          if (this.latitude) {
-            config.map.latitude = this.latitude;
-          }
-          if (this.longitude) {
-            config.map.longitude = this.longitude;
-          }
-          if (this.zoom) {
-            config.map.zoom = this.zoom;
-          }
-          if (this.rotation) {
-            config.map.rotation = this.rotation;
-          }
-          if (this.layers) {
-            config.map.layers = this.layers;
-          }
-          if (this.basemaps) {
-            config.map.basemaps = this.basemaps;
-          }
         } else {
-          config = {
-            map: {
-              target: this.target,
-              projection: this.projection,
-              latitude: this.latitude,
-              longitude: this.longitude,
-              zoom: this.zoom,
-              rotation: this.rotation,
-              layers: this.layers,
-              basemaps: this.basemap
-            }
-          };
+          config = { map: {} };
+        }
+        
+        config.backendUrl = backendUrl || config.backendUrl;
+        if (target) {
+          config.map.target = target;
+        }
+        if (projection) {
+          config.map.projection = projection;
+        }
+        if (latitude) {
+          config.map.latitude = latitude;
+        }
+        if (longitude) {
+          config.map.longitude = longitude;
+        }
+        if (zoom) {
+          config.map.zoom = zoom;
+        }
+        if (rotation) {
+          config.map.rotation = rotation;
+        }
+        if (controls) {
+          config.map.controls = controls;
+        }
+        if (interactions) {
+          config.map.interactions = interactions;
+        }
+        if (layers.length > 0) {
+          config.map.layers = layers;
+        }
+        if (basemaps.length > 0) {
+          config.map.basemaps = basemaps;
         }
 
         this.$emit("config-created", config);
 
-        const map = await this.$ol.createMap(config.map);
-        this.$emit("map-created", this.$ol.getMap());
+        const map = this.$ol.daemon.createMap(config.map, config.backendUrl);
+        this.$emit("map-created", this.$ol.daemon.getMap());
         map.once("rendercomplete", () => {
-          this.$emit("map-rendered", this.$ol.getMap());
+          this.$emit("map-rendered", this.$ol.daemon.getMap());
         });
       } catch (e) {
         console.log(e);
