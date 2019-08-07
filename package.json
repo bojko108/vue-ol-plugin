@@ -10,6 +10,7 @@
     "attributes": "src/vetur/attributes.json"
   },
   "scripts": {
+    "copy": "ncp src ../sos-test-map/node_modules/vue-ol-plugin/src",
     "patch": "npm version patch --no-git-tag-version",
     "minor": "npm version minor --no-git-tag-version",
     "major": "npm version major --no-git-tag-version",
@@ -27,6 +28,7 @@
     "@vue/cli-service": "^3.9.0",
     "@vue/test-utils": "1.0.0-beta.29",
     "chai": "^4.1.2",
+    "ncp": "^2.0.0",
     "vue-template-compiler": "^2.6.10"
   }
 }
