@@ -6,7 +6,7 @@
 </template>
 <script>
 export default {
-  name: "Map",
+  name: "DaemonMap",
   props: {
     configUrl: { type: String, required: false },
     cssClasses: { type: String, required: false, default: "map" },

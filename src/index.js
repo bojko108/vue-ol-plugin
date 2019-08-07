@@ -1,5 +1,5 @@
 import * as ol from 'ol';
-import Map from './components/OlMap.vue';
+import DaemonMap from './components/DaemonMap.vue';
 import AxiosPlugin from 'vue-axios-plugin';
 
 export default {
@@ -11,7 +11,7 @@ export default {
     /**
      * Register a global component for a OpenLayers Map element
      */
-    Vue.component('ol-map', Map);
+    Vue.component('daemon-map', DaemonMap);
 
     /**
      * Register ol lib
