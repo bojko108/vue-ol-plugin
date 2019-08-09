@@ -5370,8 +5370,8 @@ ol@^5.2.0:
     rbush "2.0.2"
 
 ol@bojko108/openlayers#mapdaemon:
-  version "6.0.0-beta.14"
-  resolved "https://codeload.github.com/bojko108/openlayers/tar.gz/1bf11ed5fec007f11a6fe3384ec2cd3ed5653e0a"
+  version "6.0.0-beta.15"
+  resolved "https://codeload.github.com/bojko108/openlayers/tar.gz/3399639f6fea5161681b7317187087f29c2eeb9b"
   dependencies:
     "@feathersjs/feathers" "^3.3.1"
     "@feathersjs/rest-client" "^1.4.7"
