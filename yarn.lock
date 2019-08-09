@@ -5355,8 +5355,8 @@ obuf@^1.0.0, obuf@^1.1.2:
   integrity sha512-PX1wu0AmAdPqOL1mWhqmlOd8kOIZQwGZw6rh7uby9fTc5lhaOWFLX3I6R1hrF9k3zUY40e6igsLGkDXK92LJNg==
 
 ol-esri-style@bojko108/ol-esri-style:
-  version "2.0.1"
-  resolved "https://codeload.github.com/bojko108/ol-esri-style/tar.gz/b042df39492138fd2154a77aaf009643f26f86be"
+  version "2.0.2"
+  resolved "https://codeload.github.com/bojko108/ol-esri-style/tar.gz/60d238b5ebaf23dea68121ae7549ebebcab55048"
   dependencies:
     ol "^5.2.0"
 
@@ -5370,8 +5370,8 @@ ol@^5.2.0:
     rbush "2.0.2"
 
 ol@bojko108/openlayers#mapdaemon:
-  version "6.0.0-beta.15"
-  resolved "https://codeload.github.com/bojko108/openlayers/tar.gz/3399639f6fea5161681b7317187087f29c2eeb9b"
+  version "6.0.0-beta.16"
+  resolved "https://codeload.github.com/bojko108/openlayers/tar.gz/80ae034b63d2a520e1c02bb9ad05b7fccab5faf7"
   dependencies:
     "@feathersjs/feathers" "^3.3.1"
     "@feathersjs/rest-client" "^1.4.7"
